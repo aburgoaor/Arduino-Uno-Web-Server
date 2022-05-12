@@ -17,26 +17,26 @@ File HTML_file;
 void setup() {    
   Serial.begin(9600);
   
-  Serial.println("Initializing SD Card...");
+  Serial.println("Initizando tarjeta SD...");
   if (!SD.begin(4)) {
-    Serial.println("Failed to start SD Card.");
+    Serial.println("Fallo al iniciar tarjeta SD.");
     return;
   }
-  Serial.println("SD Card initialized!");
+  Serial.println("Tarjeta SD inicializada!");
   
   if (!SD.exists("index.htm")) {
-    Serial.println("Web file not found!");
+    Serial.println("Archivo web no encontrado!");
     return;
   }
-  Serial.println("Web file found!");
+  Serial.println("Archivo web encontrado!");
 
   Ethernet.begin(mac);
   server.begin();
 
   if (Ethernet.localIP() != 0,0,0,0) {
-    Serial.println("Error to start Web Server!");
+    Serial.println("Error al iniciar servidor web!");
   } else {
-    Serial.println("Starting Web Server...");
+    Serial.println("Iniciando servidor web...");
     Serial.print("IP: ");
     Serial.println(Ethernet.localIP());
   }
